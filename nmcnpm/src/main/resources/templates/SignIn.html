@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="/static/login.css">
+    <link rel="shortcut icon" href="https://u6wdnj9wggobj.vcdn.cloud/static/version1684427202/frontend/Mgs/mkingdom/vi_VN/images/mkd-logo-mobile.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/login.css}">
+</head>
+<body>
+<header>
+    <div class="header">
+        <p><i class="fa-solid fa-phone"></i> HOTLINE:0865923203</p>
+        <p><i class="fa-solid fa-location-dot"></i> Hệ thống 246 cửa hàng mykingdom</p>
+    </div>
+</header>
+<div class="header1">
+    <div class="header1-child">
+        <div class="img">
+            <img src="https://u6wdnj9wggobj.vcdn.cloud/media/logo/stores/1/logo-254x76.png" alt="">
+        </div>
+
+        <div class="input">
+            <input type="text">
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+
+        <div class="x-box">
+            <div class="box user">
+                <i class="fa-solid fa-user"></i>
+                <a href=""> TÀI KHOẢN</a>
+            </div>
+            <div class="box">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <a href="">GIỎ HÀNG</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="dropdown">
+        <div class="dropdown__header">
+            <span> TÀI KHOẢN</span>
+            <i class="fa-solid fa-caret-down"></i>
+        </div>
+        <ul class="dropdown__main">
+
+            <li class="item">
+                <span>Xem đơn hàng</span>
+
+            </li>
+            <li class="item">
+                <span>Đăng nhập</span>
+
+            </li>
+            <li class="item">
+                <span>Đăng xuất</span>
+
+            <li class="item">
+                <span>Đăng ký</span>
+
+            </li>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="root">
+    <main>
+        <section id="sign-in">
+            <div class="sign-in__container">
+                <div class="sign-in__main">
+                    <h1>
+                        Đăng Nhập
+                    </h1>
+                    <p>
+                        Đăng nhập để mua hàng và sử dụng những tiện ích mới nhất từ Mykingdom
+                    </p>
+                    <form th:action="@{/login}" method="post">
+                        <input type="email" name="username" placeholder="Email" required>
+                        <input type="password" name="password" id="input-password" placeholder="Enter Password" required>
+                        <i id="toggle-password" class="fa-regular fa-eye-slash"></i>
+                        <div class="form__check">
+                            <div>
+                                <input type="checkbox" id="form__checkbox">
+                                <label for="form__checkbox">
+                                    Remember me
+                                </label>
+                            </div>
+                            <div class="form__forgot-password">
+                                    <span>
+                                        Forgot password?
+                                    </span>
+                                <a href="../Pages/ForgotPassword.html">Reset It</a>
+                            </div>
+                        </div>
+                        <div class="form__btn">
+                            <button>
+                                Sign In
+                            </button>
+                        </div>
+                        <div class="form__sign-up">
+                                <span>
+                                    Don&#39;t have an account?
+                                </span>
+                            <a href="../Pages/SignUp.html">Sign Up</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</div>
+</body>
+</html>

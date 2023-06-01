@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ    </title>
+    <link rel="stylesheet" href="/static/store.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/store.css}">
+    <link rel="stylesheet" href="../Styles/index.css">
+    <link rel="stylesheet" href="../Styles/MainLayout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<header>
+    <div class="header">
+        <p><i class="fa-solid fa-phone"></i> HOTLINE:0865923203</p>
+        <p><i class="fa-solid fa-location-dot"></i> Hệ thống 246 cửa hàng mykingdom</p>
+    </div>
+</header>
+<div class="header1">
+    <div class="header1-child">
+        <div class="img">
+            <img src="https://u6wdnj9wggobj.vcdn.cloud/media/logo/stores/1/logo-254x76.png" alt="">
+        </div>
+
+        <div class="input">
+            <input type="text">
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+
+        <a th:href="@{/giohang}" class="x-box">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <p>GIỎ HÀNG</p>
+        </a>
+
+    </div>
+    <div class="dropdown">
+        <div class="dropdown__header">
+            <span> TÀI KHOẢN</span>
+            <i class="fa-solid fa-caret-down"></i>
+        </div>
+        <ul class="dropdown__main">
+
+            <li class="item">
+                <a th:href="@{/donhang}">Xem đơn hàng</a>
+
+            </li>
+            <li class="item">
+                <a th:href="@{/login}">Đăng nhập</a>
+
+            </li>
+            <li class="item">
+                <a th:href="@{/logout}">Đăng xuất</a>
+
+            <li class="item">
+            <a th:href="@{/signup}">Đăng ký</a>
+
+            </li>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="main">
+    <div class="stores">
+        <ol class="breadcrum row-five">
+            <li class="breadcrum-item"><a href="#!">Home</a></li>
+            <li class="breadcrum-item mb-sec" style="color: #0aad0a;">/</li>
+            <li class="breadcrum-item">
+                <a href="#!">Stores</a> </li>
+            <li class="breadcrum-item mb-sec" style="color: #0aad0a;">/</li>
+
+            <li class="breadcrum-item active">
+                <a href="page" style="color:
+                    #889397;">List</a></li>
+        </ol>
+    </div>
+    <div class="ct">
+        <div class="container">
+            <div class="row">
+
+                <div class="content-ct content-1 content-2">
+                    <div class="container">
+                        <div class="one">
+                            <div class="one-left">
+                                <div class="one-left-ct">
+                                    <div class="row-two"><h5>My Kingdom</h5>
+                                        <p class="row-five">
+                                            Whatever the occasion, we've got you covered.
+                                        </p></div>
+                                    <div class="card-position" style="display: flex;">
+
+                                        <input type="email" id="" placeholder="Search in My Kingdom" style="position: relative;width: 100%;" >
+                                        <span style="position: absolute;top: 0 ;left: 90%; "> <i class="fa-solid fa-magnifying-glass"></i></span>
+                                    </div>
+                                </div>
+                                <div class="one-left-img">
+                                    <img src="https://u6wdnj9wggobj.vcdn.cloud/static/version1684427202/frontend/Mgs/mkingdom/vi_VN/images/mkd-logo-mobile.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="two">
+                            <div class="two-left">
+                                <div th:object="${size}" >
+                                    <p th:text="${size.size()+' Products found'}" class="row-two mb-md-0"></p>
+                                </div>
+                            </div>
+                            <div class="two-right">
+                                <div class="me-2">
+                                    <select class="form-select">
+                                        <option selected style="padding: 0 2px 1px 2px;">Show: 50</option>
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
+                                        <option value="30">30</option>
+                                    </select>
+                                    <select class="form-select" >
+                                        <option selected>Sort by: Featured</option>
+                                        <option value="Low to High">Price: Low to High</option>
+                                        <option value="Release Date">Release Date</option>
+                                        <option value="Avg. Rating">Avg. Rating</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="three">
+
+                            <form th:method="post" th:action="@{/giohang/create}"  th:each="item : ${items}"  class="col">
+                                <input class="input" type="text" name="soLuong" th:value="1" >
+                                <input class="input" type="text" name="sanPhamId" th:value="${item.getId()}">
+                                <div class="card card-product">
+                                    <div class="card-body">
+                                        <div class="text-center card-position">
+                                            <a href="">
+                                                <img th:src="@{${item.hinhAnh.anh}}" alt="hinh anh">
+                                            </a>
+                                        </div>
+                                        <div class="text-small mb-1">
+                                            <a th:text="${item.getMoTa()}"  href="#"></a>
+                                        </div>
+                                        <h2>
+                                            <a th:text="${item.getTenSP()}" href="../Pages/wen-be.html"></a>
+                                        </h2>
+
+                                        <div class="cost">
+                                            <div class="cost-m">
+                                                    <span th:text="${item.getGia()+'VND'}"
+                                                            class="text-dark"></span>
+
+                                            </div>
+                                            <button class="cost-a">
+
+                                                    <div class="a-l"><i class="fa-regular fa-plus"></i></div>
+                                                    <div class="a-r"><p style="color: #fff;">Add</p></div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+
+                        </div>
+                        <div class="four">
+                            <div class="col">
+                                <nav>
+                                    <ul class="number">
+                                        <li class="page-item" style="background-color: aliceblue;">
+                                            <a href="#">
+                                                <i class="fa-solid fa-chevron-left"></i>
+                                            </a>
+                                        </li>
+                                        <li class="page-item" style="background-color: #db3030;"><a href="#">1</a></li>
+                                        <li class="page-item"><a href="#">2</a></li>
+                                        <li class="page-item"><a href="#">...</a></li>
+                                        <li class="page-item"><a href="#">12</a></li>
+                                        <li class="page-item">
+                                            <a href="#">
+                                                <i class="fa-solid fa-chevron-right"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+
+<hr style="opacity: 0.5;margin-top: 5%;">
+
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Thêm sản phẩm</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/static/add.css" />
+    <link rel="stylesheet" type="text/css" th:href="@{/add.css}">
+</head>
+<div class="main-content">
+    <div style="height: 50px;"></div>
+    <h1>Thêm sản phẩm</h1>
+    <div id="content-box">
+        <div class="container">
+            <a href="/admin/ui" style="margin: 10px 0;">Quay lại danh sách sản phẩm </a><br>
+        </div>
+        <div style="margin: 10px 0"></div>
+        <form id="product-form" method="POST" th:action="@{'http://localhost:8080/sanpham/create'}">
+            <div class="clear-both"></div>
+            <div class="wrap-field">
+                <label>Tên sản phẩm: </label>
+                <input type="text" name="tenSP" value="" />
+                <div class="clear-both"></div>
+            </div>
+            <div class="wrap-field">
+                <label>Giá sản phẩm: </label>
+                <input type="text" name="gia" value="" />
+                <div class="clear-both"></div>
+            </div>
+            <div class="wrap-field">
+                <label>Ảnh sản phẩm: </label>
+                <div class="right-wrap-field">
+                    <input type="file" name="hinhAnh" />
+                </div>
+                <div class="clear-both"></div>
+            </div>
+            <div class="wrap-field">
+                <label>Nội dung: </label>
+                <textarea name="moTa" id="product-content"></textarea>
+                <div class="clear-both"></div>
+            </div>
+            <button style="padding: 10px 20px ">Thêm</button>
+        </form>
+        <div class="clear-both"></div>
+    </div>
+</div>
+
+</html>

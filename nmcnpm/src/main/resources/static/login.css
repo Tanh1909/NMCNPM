@@ -1,0 +1,310 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Maven Pro', sans-serif;
+    box-sizing: border-box;
+    transition: 0.2ms ease-in-out;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+body{
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+header{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    background-color: #3E4999;
+}
+.header{
+    font-weight: bolder;
+    padding: 5px 0;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+.header1{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.header1-child{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+}
+.header1-child .img{
+    flex: 1;
+    width: 200px;
+
+}
+.x-box{
+    flex: 2;
+    display: flex;
+}
+.img img{
+    margin-left: 10%;
+    width: 10%;
+    height: 100%;
+    object-fit: contain;
+}
+.input{
+    flex: 3;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.input input{
+    height: 45%;
+    width: 70%;
+    outline: 0;
+    padding-left: 20px;
+    font-size: 15px;
+    border: 1px solid rgb(236, 236, 236);
+}
+.input button{
+    height: 45%;
+    background-color: rgb(214, 215, 215);
+    border: none;
+    color: red;
+    font-size: 15px;
+    padding: 0 40px;
+}
+.input button:hover{
+    cursor: pointer;
+    color: rgb(131, 5, 5);
+}
+.x-box{
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+}
+.box{
+    display: flex;
+}
+.user{
+    opacity: 0;
+    transform: translateX(100%);
+}
+.dropdown{
+    position: absolute;
+    right: 15%;
+    width: 10%;
+    border-radius: 4px;
+    top: 10%;
+
+}
+.dropdown:hover .dropdown__main{
+    display: block;
+}
+.dropdown__header{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    border-radius: 0px;
+    cursor: pointer;
+}
+.dropdown__main{
+    position: relative;
+    margin-top: 5px;
+    width: 100%;
+    background-color: white;
+    border-radius: 0px;
+    display: none;
+}
+.dropdown__main::after{
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    top: -8px;
+    left: 20px;
+    border-radius: 0px;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+.item{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 20px;
+    border-radius: 0px;
+    cursor: pointer;
+    border-bottom: 1px black solid;
+}
+
+.item:hover{
+    color: red;
+}
+.dropdown__item:first-child:hover ~ .dropdown__main::after{
+    color: red;
+}
+html {
+    font-family: Inter, sans-serif;
+}
+
+.sign-in__container {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    margin: 32px auto;
+}
+
+.sign-in__container,
+.sign-in__img,
+.sign-in__main {
+    padding: 0 12px;
+}
+
+.sign-in__img {
+    display: flex;
+    align-items: center;
+}
+
+.sign-in__img>img {
+    width: 100%;
+    height: auto;
+}
+
+.sign-in__main>h1 {
+    margin-bottom: 4px;
+    color: #001e2b;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.48px;
+}
+
+.sign-in__main>p {
+    margin-bottom: 28px;
+    color: #5c6c75;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+form {
+    color: #5c6c75;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+form>input {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px 16px;
+    color: #5c6c75;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 500;
+    height:60px;
+}
+
+form input {
+    border: 1px solid #dfe2e1;
+    border-radius: 6px;
+}
+
+form input:focus {
+    border-color: #FF0000;
+    box-shadow: 0 0 0 0.25rem rgba(240, 88, 88, 0.24);
+    outline: none;
+}
+
+#toggle-password {
+    font-size: 12px;
+}
+
+.form__check {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+#form__checkbox+label {
+    margin-left: 2px;
+}
+
+.form__btn,
+.form__sign-up {
+    margin-top: 14px;
+}
+
+.form__forgot-password>a,
+.form__sign-up>a {
+    color: #FF0000;
+    text-decoration: none;
+}
+
+.form__btn>button {
+    width: 100%;
+    border: 1px solid #FF0000;
+    border-radius: 6px;
+    padding: 10px 16px;
+    background-color: #FF0000;
+    color: white;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.form__btn>button:hover {
+    background-color: #FF0000;
+    border-color: #FF0000;
+}
+
+
+@media (min-width: 576px) {
+    .sign-in__container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .sign-in__container {
+        flex-direction: row-reverse;
+        max-width: 720px;
+    }
+
+    .sign-in__img,
+    .sign-in__main {
+        width: 50%;
+    }
+}
+
+@media (min-width: 992px) {
+    .sign-in__container {
+        flex-direction: row;
+        max-width: 920px;
+        margin: 80px auto;
+    }
+
+    .sign-in__main {
+        margin-left: 8.33333%;
+    }
+
+    .sign-in__img,
+    .sign-in__main {
+        width: 60%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .sign-in__container {
+        max-width: 1140px;
+    }
+}

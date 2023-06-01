@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>
+        Giỏ Hàng Của Tôi
+    </title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/static/gioHang.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/gioHang.css}">
+</head>
+
+<body  onload="tinhThanhTienOnInit()">
+<header>
+    <div class="header">
+        <p><i class="fa-solid fa-phone"></i> HOTLINE:0865923203</p>
+        <p><i class="fa-solid fa-location-dot"></i> Hệ thống 246 cửa hàng mykingdom</p>
+    </div>
+</header>
+<div class="header1">
+    <div class="header1-child">
+        <div class="img">
+            <img src="https://u6wdnj9wggobj.vcdn.cloud/media/logo/stores/1/logo-254x76.png" alt="">
+        </div>
+
+        <div class="input">
+            <input type="text">
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+
+        <a th:href="@{/giohang}" class="x-box">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <p>GIỎ HÀNG</p>
+        </a>
+
+    </div>
+    <div class="dropdown">
+        <div class="dropdown__header">
+            <span> TÀI KHOẢN</span>
+            <i class="fa-solid fa-caret-down"></i>
+        </div>
+        <ul class="dropdown__main">
+
+            <li class="item">
+                <span>Xem đơn hàng</span>
+
+            </li>
+            <li class="item">
+                <span>Đăng nhập</span>
+
+            </li>
+            <li class="item">
+                <span>Đăng xuất</span>
+
+            <li class="item">
+                <span>Đăng ký</span>
+
+            </li>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+
+<div class="container">
+
+    <div id="giohang">
+        <h3>Giỏ hàng</h3>
+        <div class="giohang">
+            <table>
+                <tr>
+                    <th>Hình ảnh</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Đơn giá</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                    <th>Xóa</th>
+                </tr>
+                <!-- từ đây trở xuống là sản phẩm -->
+                <tr th:each="item:${items}">
+                    <td ><img th:src="@{${item.sanPham.hinhAnh.anh}}" alt="hinh anh"></td>
+                    <td th:text="${item.sanPham.tenSP}"></td>
+                    <td id="giaGoc" th:text="${item.sanPham.gia}"></td>
+                    <td><input  data-item-id="${item.id}" onblur="updateQuantity(this)"  onchange="tinhThanhTien(this)"  type="number" min="0" th:value="${item.soLuong}"></td>
+                    <td th:text="${item.sanPham.gia}*${item.soLuong}" id="tongTien"></td>
+                    <td> <form th:action="@{/giohang/delete/{id}(id=${item.id})}" method="post" class="button"><button><i class="fa-solid fa-trash"></i></button> </form></td>
+                </tr>
+
+            </table>
+
+        </div>
+        <a th:href="@{/store}" class="tt"> <i class="fa-solid fa-arrow-right"></i> TiẾP TỤC MUA HÀNG</a>
+    </div>
+    <div id="thanhtoan">
+        <div class="thanhtoan">
+            <p>TỔNG CỘNG</p>
+            <p class="tong total">Tổng tiền: </p>
+            <a href="">Tiến Hành Thanh Toán</a>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function updateQuantity(input) {
+        var id = input.dataset.itemId;
+        var soLuong = input.value;
+
+        $.ajax({
+            url: '/giohang/update/' + id,
+            type: 'POST',
+            data: { soLuong: soLuong },
+        });
+    }
+</script>
+
+<script>
+    function tinhThanhTien(input) {
+        var row = input.parentNode.parentNode;
+        var donGiaCell = row.cells[2];
+        var thanhTienCell = row.cells[4];
+        var tongTienElement = document.querySelector('.total');
+
+        var soLuong = parseInt(input.value);
+        var donGia = parseInt(donGiaCell.textContent);
+
+        var thanhTien = soLuong * donGia;
+        thanhTienCell.textContent = thanhTien + 'vnd';
+
+        var rows = document.getElementsByTagName('tr');
+        var tongTien = 0;
+        for (var i = 1; i < rows.length; i++) {
+            var thanhTienText = rows[i].cells[4].textContent;
+            var thanhTienValue = parseInt(thanhTienText);
+            if (!isNaN(thanhTienValue)) {
+                tongTien += thanhTienValue;
+            }
+        }
+        tongTienElement.textContent = 'Tổng tiền: ' + tongTien + 'vnd';
+    }
+
+    function tinhThanhTienOnInit() {
+        var inputs = document.getElementsByTagName('input');
+        for (var i = 0; i < inputs.length; i++) {
+            if (inputs[i].type === 'number') {
+                tinhThanhTien(inputs[i]);
+            }
+        }
+    }
+</script>
+
+</body>
+
+</html>

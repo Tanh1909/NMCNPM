@@ -1,0 +1,256 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    position: relative;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+header{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #3E4999;
+}
+.header{
+    font-weight: bolder;
+    padding: 5px 0;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+.header1{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.header1-child{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+}
+.header1-child .img{
+    flex: 1;
+    width: 200px;
+
+}
+.x-box{
+    flex: 2;
+    display: flex;
+}
+.img img{
+    margin-left: 10%;
+    width: 40%;
+    height: 100%;
+    object-fit: contain;
+}
+.input{
+    flex: 3;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.input input{
+    height: 45%;
+    width: 70%;
+    outline: 0;
+    padding-left: 20px;
+    font-size: 15px;
+    border: 1px solid rgb(236, 236, 236);
+}
+.input button{
+    height: 45%;
+    background-color: rgb(214, 215, 215);
+    border: none;
+    color: red;
+    font-size: 15px;
+    padding: 0 40px;
+}
+.input button:hover{
+    cursor: pointer;
+    color: rgb(131, 5, 5);
+}
+.x-box{
+    display: none;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 4%;
+    color: black;
+}
+.box{
+    color: black;
+    display: flex;
+}
+.box a{
+    color: black;
+}
+.user{
+    opacity: 0;
+    transform: translateX(100%);
+}
+.dropdown{
+    position: absolute;
+    right: 15%;
+    width: 10%;
+    border-radius: 4px;
+    top: 10%;
+
+}
+.dropdown:hover .dropdown__main{
+    display: block;
+}
+.dropdown__header{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    border-radius: 0px;
+    cursor: pointer;
+}
+.dropdown__main{
+    position: relative;
+    margin-top: 5px;
+    width: 100%;
+    background-color: white;
+    border-radius: 0px;
+    display: none;
+}
+.dropdown__main::after{
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    top: -8px;
+    left: 20px;
+    border-radius: 0px;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+.item{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 20px;
+    border-radius: 0px;
+    cursor: pointer;
+    border-bottom: 1px black solid;
+}
+
+.item:hover{
+    color: red;
+}
+.dropdown__item:first-child:hover ~ .dropdown__main::after{
+    color: red;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    width: 80%;
+}
+h3{
+    margin:20px 0;
+}
+.giohang{
+    width: 100%;
+}
+#giohang .tt{
+    display: block;
+    width: 180px;
+    background-color:white;
+    border: 1px solid rgb(210, 204, 204);
+    color: black;
+    line-height: 20px;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 200ms ease-in-out;
+}
+#giohang .tt:hover{
+    background-color: #353333;
+    color: white;
+}
+
+
+th, td{
+    border:1px solid #353333;
+}
+table{
+    border-collapse:collapse;
+    font-size: 20px;
+
+}
+th, td{
+    text-align: center;
+    width: 200px;
+    padding:10px;
+}
+td input{
+    padding: 5px;
+}
+td img{
+    width: 100px;
+    height: 100px;
+}
+table tr:nth-child(odd){
+    background-color:#eee;
+}
+table tr:nth-child(even){
+    background-color:white;
+}
+
+button{
+    background-color: white;
+    border: none;
+}
+button:hover{
+    cursor: pointer;
+    color: red;
+}
+#thanhtoan{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.thanhtoan{
+    width: 25%;
+}
+#thanhtoan p:first-child{
+    font-size: 20px;
+    margin:20px 0;
+    border-bottom: 1px solid #9d9a9a;
+}
+.tong{
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+#thanhtoan a{
+    display: block;
+    background-color: rgb(105, 105, 105);
+    border: 1px solid black;
+    color: aliceblue;
+    line-height: 20px;
+    padding: 10px 10px;
+    font-size: 25px;
+    padding: 25px;
+    transition: ease-in-out 200ms;
+}
+#thanhtoan a:hover{
+    background-color: rgb(35, 34, 34);
+}
