@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>
+        Đơn Hàng Của Tôi
+    </title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/static/gioHang.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/gioHang.css}">
+</head>
+
+<body>
+<header>
+    <div class="header">
+        <p><i class="fa-solid fa-phone"></i> HOTLINE:0865923203</p>
+        <p><i class="fa-solid fa-location-dot"></i> Hệ thống 246 cửa hàng mykingdom</p>
+    </div>
+</header>
+
+
+
+<div class="container">
+
+    <div id="giohang">
+        <h3>Đơn hàng của tôi</h3>
+        <div class="giohang">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Trạng thái</th>
+                    <th>Ngày Đặt</th>
+
+                </tr>
+                <!-- từ đây trở xuống là sản phẩm -->
+                <tr th:each="item:${items}">
+                    <td th:text="'DH00'+${item.id}"></td>
+                    <td th:text="${item.trangThai}"></td>
+                    <td th:text="${item.NgayTao}"></td>
+                </tr>
+
+            </table>
+
+        </div>
+        <a th:href="@{/store}" class="tt"> <i class="fa-solid fa-arrow-right"></i> TiẾP TỤC MUA HÀNG</a>
+    </div>
+</div>
+
+
+
+</body>
+
+</html>

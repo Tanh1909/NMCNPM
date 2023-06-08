@@ -25,6 +25,10 @@ public class ScreenController {
     public String login(){
         return "SignIn";
     }
+    @GetMapping("/taikhoan/signup")
+    public String signup(){
+        return "signup";
+    }
     @GetMapping(value = {"/","/store"})
     public String store(Model model){
         model.addAttribute("size", sanPhamService.findAll());
